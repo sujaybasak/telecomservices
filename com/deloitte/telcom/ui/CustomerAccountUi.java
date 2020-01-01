@@ -31,13 +31,13 @@ public class CustomerAccountUi {
 			switch(choice) {
 			
 			case 1:
-				System.out.println("Enter Your Mobile Number1");
+				System.out.println("Enter Your Mobile Number");
 				String mobileNo1 =sc.next();
 				CustomerAccount cust1 = service.findByMobileNo(mobileNo1);
 				System.out.println("Your Balance is:"+cust1.getBalance());
 				break;
 			case 2: 
-				System.out.println("Enter Your Mobile Number2");
+				System.out.println("Enter Your Mobile Number");
 				String mobileNo2 =sc.next();
 				System.out.println("Enter The Amount:");
 				double recharge = sc.nextDouble();
@@ -47,7 +47,7 @@ public class CustomerAccountUi {
 				System.out.println("Account Details:"+cust2);
 				break;
 			case 3:
-				System.out.println("Enter Your Mobile Number3");
+				System.out.println("Enter Your Mobile Number");
 				String mobileNo3 =sc.next();
 				System.out.println("Enter Your Name");
 				String name =sc.next();
