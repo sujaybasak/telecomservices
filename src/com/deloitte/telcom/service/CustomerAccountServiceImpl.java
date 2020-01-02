@@ -5,36 +5,44 @@ import com.deloitte.telcom.entities.CustomerAccount;
 import com.deloitte.telcom.exception.IncorrectMobileNoException;
 
 public class CustomerAccountServiceImpl implements ICustomerAccountService {
-	private ICustomerAccountDao dao;
-
-	public ICustomerAccountDao getDao() {
+ ICustomerAccountDao dao;
+ public ICustomerAccountDao getDao() {
 		return dao;
 	}
-
-	public CustomerAccountServiceImpl(ICustomerAccountDao dao) {
+ 
+ public CustomerAccountServiceImpl(ICustomerAccountDao dao) {
 		this.dao = dao;
 	}
 
 	@Override
 	public CustomerAccount findByMobileNo(String mobileNo) {
-		if (mobileNo == null || mobileNo.length() != 10) {
-			throw new IncorrectMobileNoException("Incorrect mobile number" + mobileNo);
+		if(mobileNo ==null || mobileNo.length()!=10) {
+			throw new IncorrectMobileNoException("Incorrect mobile number"+mobileNo);
 		}
-		CustomerAccount c = dao.findByMobileNo(mobileNo);
+		CustomerAccount c= dao.findByMobileNo(mobileNo);
 		return c;
 	}
 
 	@Override
 	public void rechargeAccount(CustomerAccount cust, double amt) {
 		dao.rechargeAccount(cust, amt);
-
+		
 	}
 
 	@Override
-	public void addCustomerDetails(String mobileNo, String name, String accountType, double balance) {
-		CustomerAccount d = new CustomerAccount(mobileNo, name, accountType, balance);
+	public CustomerAccount addCustomerDetails(String mobileNo, String name, String accountType, double balance) {
+	CustomerAccount d = new CustomerAccount(mobileNo,name,accountType,balance);
 		dao.addCustomerDetails(d);
-
+		return d;
+		
 	}
+
+	@Override
+	public CustomerAccount getAccountDetails(String mobileNo) {
+		return this.findByMobileNo(mobileNo);
+		
+	}
+
+	
 
 }

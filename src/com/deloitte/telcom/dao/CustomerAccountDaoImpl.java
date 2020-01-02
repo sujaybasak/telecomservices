@@ -13,7 +13,7 @@ public class CustomerAccountDaoImpl implements ICustomerAccountDao {
 	public Map<String, CustomerAccount> getStore() {
 		return store;
 	}
-
+	
 	@Override
 	public CustomerAccount findByMobileNo(String mobileNo) {
 		CustomerAccount c = store.get(mobileNo);
@@ -31,8 +31,8 @@ public class CustomerAccountDaoImpl implements ICustomerAccountDao {
 	}
 
 	@Override
-	public void addCustomerDetails(CustomerAccount c) {
-		store.put(c.getMobileNo(), c);
+	public CustomerAccount addCustomerDetails(CustomerAccount c) {
+		return store.put(c.getMobileNo(), c);
 
 	}
 

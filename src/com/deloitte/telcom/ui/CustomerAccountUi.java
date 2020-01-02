@@ -18,12 +18,12 @@ public class CustomerAccountUi {
 	private void runUi() {
 		while(true){
 		try {
-			System.out.println("Please Select an Option From The Menu:");
+			System.out.println("***Please Select an Option From The Menu:***");
 			System.out.println("1: Account Balance Enquiry");
 			System.out.println("2: Recharge Account");
 			System.out.println("3: Create Account");
 			System.out.println("4: Exit");
-			System.out.println("Enter Your Choice ");
+			System.out.println("Enter Your Choice :");
 			
 			Scanner sc = new Scanner(System.in);
 			int  choice =sc.nextInt();
@@ -31,36 +31,36 @@ public class CustomerAccountUi {
 			switch(choice) {
 			
 			case 1:
-				System.out.println("Enter Your Mobile Number");
+				System.out.println("Enter Your Mobile Number:");
 				String mobileNo1 =sc.next();
 				CustomerAccount cust1 = service.findByMobileNo(mobileNo1);
-				System.out.println("Your Balance is:"+cust1.getBalance());
+				System.out.println("Your Balance is: "+cust1.getBalance());
 				break;
 			case 2: 
-				System.out.println("Enter Your Mobile Number");
+				System.out.println("Enter Your Mobile Number:");
 				String mobileNo2 =sc.next();
 				System.out.println("Enter The Amount:");
 				double recharge = sc.nextDouble();
 				CustomerAccount cust2 = service.findByMobileNo(mobileNo2);
 				service.rechargeAccount(cust2, recharge);
-				System.out.println("Recharge done");
-				System.out.println("Account Details:"+cust2);
+				System.out.println("Recharge Succesfull");
+				System.out.println("Account Details: "+cust2);
 				break;
 			case 3:
-				System.out.println("Enter Your Mobile Number");
+				System.out.println("Enter Your Mobile Number:");
 				String mobileNo3 =sc.next();
-				System.out.println("Enter Your Name");
+				System.out.println("Enter Your Name:");
 				String name =sc.next();
-				System.out.println("Enter Your Account Type(Pre Paid/Post Post)");
+				System.out.println("Enter Your Account Type(Pre Paid/Post Post):");
 				String type =sc.next();
-				System.out.println("Enter Your Initial Balance");
+				System.out.println("Enter Your Initial Balance:");
 				double balance =sc.nextDouble();
 				CustomerAccount cust3 = new CustomerAccount(mobileNo3,name,type,balance);
 				service.addCustomerDetails(mobileNo3, name, type, balance);
-				System.out.println("Account Created"+cust3);
+				System.out.println("*Account Created* "+cust3);
 				break;
 			case 4:
-				System.out.println("Do you want to exit?");
+				System.out.println("Do you want to exit?(y/n)");
 				String in =sc.next();
 				if(in =="y") {
 					break; 
